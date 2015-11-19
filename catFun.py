@@ -33,8 +33,8 @@ from random import randint
 
 # Initialize world
 name = "Cat Fun. Press the mouse (but not too fast)!"
-width = 500
-height = 500
+width = 600
+height = 600
 rw.newDisplay(width, height, name)
 
 ################################################################
@@ -68,7 +68,7 @@ def updateState(state):
 # that is, when pos is less then zero or greater than the screen width
 # state -> bool
 def endState(state):
-    if (state[0] > width or state[0] < 0 or state[2] > height or state[2] < 0):
+    if (state[0] > 423 or state[0] < 0 or state[2] > 362 or state[2] < 0):
         return True
     else:
         return False
@@ -91,17 +91,17 @@ def handleEvent(state, event):
 #    print("Handling event: " + str(event))
     if (event.type == pg.MOUSEBUTTONDOWN):
         if (state[1]) > 0 and (state[3]) > 0:
-            newState1 = randint(-3,-1)
-            newState2 = randint(1,3)
+            newState1 = randint(-5,-1)
+            newState2 = randint(1,5)
         elif (state[1]) < 0 and (state[3]) > 0:
-            newState1 = randint(-3,-1)
-            newState2 = randint(-3,-1)
+            newState1 = randint(-5,-1)
+            newState2 = randint(-5,-1)
         elif (state[1]) < 0 and (state[3]) < 0:
-            newState1 = randint(1,3)
-            newState2 = randint(-3,-1)
+            newState1 = randint(1,5)
+            newState2 = randint(-5,-1)
         else:
-            newState1 = randint(1,3)
-            newState2 = randint(1,3)
+            newState1 = randint(1,5)
+            newState2 = randint(1,5)
         return((state[0],newState1,state[2],newState2))
     else:
         return(state)
@@ -111,7 +111,7 @@ def handleEvent(state, event):
 # World state will be single x coordinate at left edge of world
 
 # The cat starts at the left, moving right 
-initState = (randint(0,250),randint(1,3),randint(0,250),randint(1,3))
+initState = (randint(0,250),randint(1,5),randint(0,250),randint(1,5))
 
 # Run the simulation no faster than 60 frames per second
 frameRate = 60
